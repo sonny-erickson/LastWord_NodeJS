@@ -1,0 +1,18 @@
+nav.navbar.navbar-expand-md.navbar-light.container.p-0.mt-4.bg-secondary.p-3
+  // navbar-light = pour que le button toggler soit dark sinon inverse
+  .col-4
+    img.logo(src='./assets/logo.jpg' alt='logo')
+  // le fameux button qui sera responsive
+  button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarTogglerDemo02' aria-controls='navbarTogglerDemo02' aria-expanded='false' aria-label='Toggle navigation')
+    span.navbar-toggler-icon
+  // ici un col-lg-8 en lg pour que le menu toggle en petit soit centré
+  #navbarTogglerDemo02.collapse.navbar-collapse.col-md-8
+    // ici pour mettre la position des <a>
+    ul.navbar-nav.justify-content-end.w-100
+      li.nav-item
+        a.nav-link(href='/') Home
+      li.nav-item
+        a.nav-link(href='/wordForm') Put Word
+      li.nav-item
+        a.nav-link(href='#') ???
+      button.btn.btn-light Co
