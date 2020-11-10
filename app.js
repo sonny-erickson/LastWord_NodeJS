@@ -2,7 +2,7 @@ const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
 const index = require('./routes');
-//require('./database');
+require('./database');
 
 const port = process.env.PORT || 3001;
 const app = express();
