@@ -2,3 +2,10 @@ extends layout
 block content
     .wrapper
         h1 je suis red
+    .card
+        if words
+            each word in words
+                h5(claas="card-header")= word.author
+                .card-body
+                    p(class="card-text")= word.content
+            br
