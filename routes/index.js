@@ -1,21 +1,9 @@
 const router = require('express').Router();
-const api = require('./api');
-const Word = require('../database/models/word.model');
+const words = require('./words');
 
-
-router.use('/api', api);
-//Définir les routes ci-dessous
-router.get('/wordForm', (req, res) =>{
-    res.render('../views/wordForm')
+router.use('/', words);
+router.get('/', (req, res) => {
+    res.redirect('/words');
 })
-
-router.get('/', (req, res) =>{
-    Word.find({})
-        .exec()
-        .then( words => res.render('home', {words}))
-})
-
-
-
 
 module.exports = router; //Pour exporter le router
