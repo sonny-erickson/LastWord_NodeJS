@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const words = require('./words');
 
-router.use('/', words);
+router.use('/words', words);
 router.get('/', (req, res) => {
     res.redirect('/words');
 })

@@ -4,6 +4,6 @@ const { wordNew, wordList, wordCreate} = require('../controllers/words.controlle
 //Définir les routes ci-dessous
 router.get('/',wordList);
 router.get('/wordForm',wordNew);
-router.post('/', wordNew);
+router.post('/', wordCreate);
 
 module.exports = router; 
