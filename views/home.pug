@@ -1,11 +1,8 @@
 extends layout
 block content
+    script(src="javascripts/home.js")
     .wrapper
         h1 je suis red
-    .card
-        if words
-            each word in words
-                h5(claas="card-header")= word.author
-                .card-body
-                    p(class="card-text")= word.content
-            br
+    div(class="card" id="word-list-container")
+       include word-list.pug
+            

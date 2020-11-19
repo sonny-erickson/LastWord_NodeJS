@@ -1,4 +1,4 @@
-const {listWord, createWord} = require("../queries/words.queries");
+const {listWord, createWord, deleteWord} = require("../queries/words.queries");
 
 exports.wordList = async(req, res, next) =>{
     try{
@@ -9,7 +9,7 @@ exports.wordList = async(req, res, next) =>{
     }
 }
 exports.wordNew = (req, res, next) =>{
-    res.render('../views/wordForm');
+    res.render('wordForm');
 }
 exports.wordCreate = async(req, res, next) =>{
     try{
@@ -19,6 +19,16 @@ exports.wordCreate = async(req, res, next) =>{
     }catch(e){
         const errors = Object.keys(e.errors).map( key => e.errors[key].message );
                 res.status(400).render('wordForm', { errors })
+    }
+}
+exports.wordDelete = async(req, res, next) =>{
+    try{
+        const wordId = req.params.wordId;
+        await deleteWord(wordId);
+        const words = await listWord();
+        res.render('words/word-list', {words});
+    }catch(e){
+        next(e)
     }
 }
 

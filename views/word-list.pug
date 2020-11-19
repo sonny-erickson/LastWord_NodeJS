@@ -1,0 +1,8 @@
+if words
+    each word in words
+        div(class="card")
+            div(class='card-body')
+                h3= word.author
+                br
+                div(class="card-text")= word.content
+                button(class="btn btn-danger float-right" wordid=word._id) x      
