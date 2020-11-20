@@ -4,5 +4,5 @@ if words
             div(class='card-body')
                 h3= word.author
                 br
-                div(class="card-text")= word.content
+                a(class="card-text" href=word._id? "/words/edit/"+ word._id : "/words")= word.content
                 button(class="btn btn-danger float-right" wordid=word._id) x      

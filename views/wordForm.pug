@@ -2,12 +2,12 @@ extends layout
 block content
   div(class="d-flex flex-row content mx-auto")
     div(class="flex-fill")
-      form(class="card" method="post" action="/words")
+      form(class="card" method="post" action=word._id ? "/words/update/"+ word._id : "/words")
         div(class="card-header") Écrire une phrase
         div(class="card-body")
-          input(type="text"  name="author" class="form-control mb-3" placeholder="Author")
+          textarea(type="text"  name="author" class="form-control mb-3" placeholder=word._id? "{word.author}" : "Author")= word.author
           div(class="form-group")
-            textarea(class="form-control" name="content" placeholder="Who have the last word ??")
+            textarea(class="form-control" name="content" placeholder="Who have the last word ??")= word.content
             if errors 
               ul(class='my-2')
                 each error in errors
