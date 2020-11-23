@@ -6,10 +6,12 @@ require('./database');
 
 const port = process.env.PORT || 3001;
 const app = express();
+exports.app = app;
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
+require("./config/session.config");
 
 app.use(morgan('short'));//morgan pour le login
 //Pour recup les static style image, css... dans le dossier public
