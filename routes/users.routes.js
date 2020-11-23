@@ -1,5 +1,5 @@
 const router = require('express').Router();
-//const {} = require('../controllers/words.controller');
+const {signupForm, signup} = require('../controllers/users.controller');
 
 //Définir les routes ci-dessous
 router.get('/signup/form',signupForm);
