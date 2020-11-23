@@ -1,3 +1,4 @@
+//Un Schema s'utilise sur une collection dans MongoDB et définit la structure des documents de cette collection.
 const mongoose = require('mongoose');
 const schema = mongoose.Schema;
 

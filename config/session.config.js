@@ -4,7 +4,7 @@ const MongoStore = require('connect-mongo')(session);
 const mongoose = require('mongoose');
 
 app.use(session({
-  secret: 'secret',
+  secret: 'secret',//secret est utilisé par express-session pour signer le cookie contenant l'id de la session. Le serveur est ainsi le seul capable de savoir si le contenu du cookie a été modifié car il est le seul à connaître ce secret.
   resave: false, //Cette option force la redéfinition d'un identifiant de session à chaque réponse
   saveUninitialized: false,// session ne sera pas sauvegardée dans le store si elle n'est pas modifiée.
                             //Autrement dit, si vous n'ajoutez rien dans la session elle ne sera pas sauvegardée.
