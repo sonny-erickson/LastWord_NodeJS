@@ -4,11 +4,15 @@
   "description": "LastWord_node",
   "main": "app.js",
   "dependencies": {
+    "bcrypt": "^5.0.0",
+    "connect-mongo": "^3.2.0",
     "errorhandler": "^1.5.1",
     "express": "^4.17.1",
+    "express-session": "^1.17.1",
     "mongoose": "^5.10.13",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.6",
+    "passport": "^0.4.1",
     "pug": "^3.0.0"
   },
   "devDependencies": {},
