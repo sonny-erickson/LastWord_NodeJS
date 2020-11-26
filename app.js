@@ -12,6 +12,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
 require("./config/session.config");
+require("./config/passport.config");
 
 app.use(morgan('short'));//morgan pour le login
 //Pour recup les static style image, css... dans le dossier public
