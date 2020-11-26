@@ -3,13 +3,13 @@ const {listWord, createWord, deleteWord, getWord, updateWord} = require("../quer
 exports.wordList = async(req, res, next) =>{
     try{
         const words = await listWord() 
-        res.render('home', {words})
+        res.render('home', {words, isAuthenticated: req.isAuthenticated(), currentUser: req.user})
     }catch(e){
         next(e)
     }
 }
 exports.wordNew = (req, res, next) =>{
-    res.render('wordForm', {word : {}});
+    res.render('wordForm', {word : {}, isAuthenticated: req.isAuthenticated(), currentUser: req.user});
 }
 exports.wordCreate = async(req, res, next) =>{
     try{
@@ -18,7 +18,7 @@ exports.wordCreate = async(req, res, next) =>{
         res.redirect('/');
     }catch(e){
         const errors = Object.keys(e.errors).map( key => e.errors[key].message );
-                res.status(400).render('wordForm', { errors })
+                res.status(400).render('wordForm', { errors, isAuthenticated: req.isAuthenticated(), currentUser: req.user })
     }
 }
 exports.wordDelete = async(req, res, next) =>{
@@ -35,7 +35,7 @@ exports.wordEdit = async(req, res, next) =>{
     try{
         const wordId= req.params.wordId;
         const word= await getWord(wordId);
-        res.render('wordForm',{word});
+        res.render('wordForm',{word, isAuthenticated: req.isAuthenticated(), currentUser: req.user});
     }catch(e){
        next(e) 
     }
@@ -49,7 +49,7 @@ exports.wordUpdate = async(req, res, next) =>{
     }catch(e){
         const errors = Object.keys(e.errors).map( key => e.errors[key].message );
         const word = await getWord(wordId)
-        res.status(400).render('wordForm', { errors, word })
+        res.status(400).render('wordForm', { errors, word, isAuthenticated: req.isAuthenticated(), currentUser: req.user })
     }
 }
 
