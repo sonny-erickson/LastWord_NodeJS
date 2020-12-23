@@ -8,3 +8,7 @@ h1{
 a{
     color: black;
 }
+img{
+    width: auto;
+    height: 75px;
+}
